@@ -1,4 +1,5 @@
 from entity.entity import Entity
+from helpers.helpers import Terminal, Direction, PinSet
 
 
 class Conductor(Entity):
@@ -10,6 +11,13 @@ class Conductor(Entity):
     """
     def __init__(self, size, terminals):
         super().__init__(size)
-        self.terminals = terminals
+        for terminal in terminals:
+            assert type(terminal) is Terminal
 
 
+class StraightWire(Conductor):
+    def __init__(self):
+        super().__init__((1, 1), [
+            Terminal((0, 0), Direction.DOWN, PinSet.BOTH),
+            Terminal((0, 0), Direction.UP, PinSet.BOTH),
+        ])
