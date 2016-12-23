@@ -1,9 +1,5 @@
 from entity.entity import Entity
-from helpers.helpers import is_tuple_of_n_ints
-
-
-class OccupationError(Exception):
-    pass
+from helpers.helpers import is_tuple_of_n_ints, OccupationError
 
 
 class Field:
@@ -52,3 +48,13 @@ class Field:
                 position[1] + entity.size[1] > asked[1])
         ]
         return entities
+
+    def step(self):
+        """
+        runs single step:
+
+        1. current gets recalculated based on blocks' outputs and wire configuration
+        2. gates are recalculated based on their inputs and set their outputs
+        :return:
+        """
+        return 0

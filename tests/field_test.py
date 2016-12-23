@@ -1,7 +1,8 @@
 import unittest
 
 from entity.entity import Entity
-from field import Field, OccupationError
+from field import Field
+from helpers.helpers import OccupationError
 
 
 def setup_field():
